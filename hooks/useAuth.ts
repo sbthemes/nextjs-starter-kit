@@ -1,0 +1,81 @@
+import axios from '@/lib/axios'
+import { deleteCookie, setCookie } from '@/lib/cookie'
+import { useStore } from '@/store'
+import { ILogin } from '@/types/auth'
+import { revalidatePath } from 'next/cache'
+
+export const useAuth = () => {
+    const fetchUser = async () => {
+        const isServer = typeof window === 'undefined'
+
+        try {
+            const { data } = await axios.get('/auth/user')
+            useStore.setState({ auth: data })
+
+            return data
+        } catch {
+            useStore.setState({ auth: null })
+
+            if (!isServer) {
+                deleteCookie('auth.__token')
+            }
+        }
+
+        return null
+    }
+
+    const login = async (params: ILogin) => {
+        try {
+            const { data } = await axios.post('/auth/login', params)
+            setCookie('auth.__token', data.token)
+            await fetchUser()
+
+            // NOTE: Refresh router after logout to refresh all data
+        } catch {}
+    }
+
+    // const register = async (params: IRegister) => {
+    //     await axios.post('', params, {
+    //         params: {
+    //             action: 'sparkal-v1-register',
+    //         },
+    //     })
+    // }
+
+    // const forgotPassword = async (params: IForgotPassword) => {
+    //     await axios.post('', params, {
+    //         params: {
+    //             action: 'sparkal-v1-forgot-password',
+    //         },
+    //     })
+    // }
+
+    // const resetPassword = async (params: IResetPassword) => {
+    //     await axios.post('', params, {
+    //         params: {
+    //             action: 'sparkal-v1-reset-password',
+    //         },
+    //     })
+    // }
+
+    const logout = async () => {
+        try {
+            await axios.post('/auth/logout')
+            deleteCookie('auth.__token')
+            useStore.setState({ auth: null })
+
+            // NOTE: Refresh router after logout to refresh all data
+        } catch {}
+    }
+
+    return {
+        loggedIn: !!useStore.getState().auth,
+        user: useStore.getState().auth,
+        fetchUser,
+        login,
+        // register,
+        // forgotPassword,
+        // resetPassword,
+        logout,
+    }
+}

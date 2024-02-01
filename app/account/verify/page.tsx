@@ -27,8 +27,6 @@ export default async function Page({
         }
     }
 
-    // const query = useSearchParams()
-
     return (
         <div className="container">
             <div className="bg-darkblue min-h-screen">

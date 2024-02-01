@@ -10,7 +10,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 export default function Page() {
     const router = useRouter()
-    const { user, forgotPassword, logout } = useAuth()
+    const { forgotPassword } = useAuth()
 
     const {
         register,

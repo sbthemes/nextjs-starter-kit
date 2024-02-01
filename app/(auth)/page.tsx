@@ -22,6 +22,7 @@ export default function Page() {
                         onClick={async () => {
                             await logout()
                             router.refresh()
+                            router.push('/login')
                         }}
                     >
                         Logout

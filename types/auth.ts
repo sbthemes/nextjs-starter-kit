@@ -13,9 +13,7 @@ export type IForgotPassword = {
     email: string
 }
 
-// export type IResetPassword = {
-//     reset_key: any
-//     reset_login: any
-//     password: string
-//     confirm_password: string
-// }
+export type IResetPassword = {
+    password: string
+    password_confirmation: string
+}

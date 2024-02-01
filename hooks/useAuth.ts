@@ -1,7 +1,12 @@
 import axios from '@/lib/axios'
 import { deleteCookie, setCookie } from '@/lib/cookie'
 import { useStore } from '@/store'
-import { IForgotPassword, ILogin, IRegister } from '@/types/auth'
+import {
+    IForgotPassword,
+    ILogin,
+    IRegister,
+    IResetPassword,
+} from '@/types/auth'
 
 export const useAuth = () => {
     const fetchUser = async () => {
@@ -46,13 +51,9 @@ export const useAuth = () => {
         } catch {}
     }
 
-    // const resetPassword = async (params: IResetPassword) => {
-    //     await axios.post('', params, {
-    //         params: {
-    //             action: 'sparkal-v1-reset-password',
-    //         },
-    //     })
-    // }
+    const resetPassword = async (url: string, params: IResetPassword) => {
+        await axios.post(url, params)
+    }
 
     const logout = async () => {
         try {
@@ -71,7 +72,7 @@ export const useAuth = () => {
         login,
         register,
         forgotPassword,
-        // resetPassword,
+        resetPassword,
         logout,
     }
 }

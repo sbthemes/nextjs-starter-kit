@@ -18,8 +18,8 @@ export default function Page() {
         formState: { isSubmitting },
     } = useForm<ILogin>({
         defaultValues: {
-            email: 'test@test.test',
-            password: 'test@test.test',
+            email: '',
+            password: '',
         },
     })
 

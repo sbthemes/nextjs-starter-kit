@@ -18,7 +18,7 @@ export default function Page() {
         formState: { isSubmitting },
     } = useForm<IForgotPassword>({
         defaultValues: {
-            email: 'test@test.test',
+            email: '',
         },
     })
 
@@ -29,17 +29,6 @@ export default function Page() {
 
     return (
         <div className="container">
-            {user && (
-                <Button
-                    type="button"
-                    onClick={() => {
-                        logout()
-                        router.refresh()
-                    }}
-                >
-                    Logout
-                </Button>
-            )}
             <div className="bg-darkblue min-h-screen">
                 <div className="py-6 text-center">
                     <Link href="/">Home</Link>

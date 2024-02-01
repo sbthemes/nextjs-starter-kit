@@ -18,9 +18,9 @@ export default function Page() {
         formState: { isSubmitting },
     } = useForm<IRegister>({
         defaultValues: {
-            email: 'test@test.test',
-            password: 'test@test.test',
-            password_confirmation: 'test@test.test',
+            email: '',
+            password: '',
+            password_confirmation: '',
         },
     })
 

@@ -11,7 +11,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 export default function Page() {
     const router = useRouter()
     const query = useSearchParams()
-    const { user, resetPassword, logout } = useAuth()
+    const { resetPassword } = useAuth()
 
     const {
         register,

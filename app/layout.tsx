@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { Toaster } from '@/components/ui/toaster'
 import StoreInitializer from '@/store/StoreInitializer'
 import { useAuth } from '@/hooks/useAuth'
+import { unstable_noStore as noStore } from 'next/cache'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,8 +19,9 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
-    const { fetchUser } = useAuth()
+    noStore()
 
+    const { fetchUser } = useAuth()
     const user = await fetchUser()
 
     return (

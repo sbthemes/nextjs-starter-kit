@@ -55,6 +55,22 @@ export const useAuth = () => {
         await axios.post(url, params)
     }
 
+    const resendEmailVerification = async () => {
+        try {
+            await axios.post('/auth/email/verify/resend')
+        } catch {}
+    }
+
+    const verifyEmail = async (url: string) => {
+        try {
+            await axios.get(url)
+            await fetchUser()
+            return true
+        } catch {
+            return false
+        }
+    }
+
     const logout = async () => {
         try {
             await axios.post('/auth/logout')
@@ -66,13 +82,16 @@ export const useAuth = () => {
     }
 
     return {
-        loggedIn: !!useStore.getState().auth,
         user: useStore.getState().auth,
+        loggedIn: !!useStore.getState().auth,
+        isEmailVerified: !!useStore.getState()?.auth?.user?.email_verified_at,
         fetchUser,
         login,
         register,
         forgotPassword,
         resetPassword,
+        resendEmailVerification,
+        verifyEmail,
         logout,
     }
 }

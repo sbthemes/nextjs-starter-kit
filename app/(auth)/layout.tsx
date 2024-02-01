@@ -9,9 +9,13 @@ export default function AuthLayout({
 }>) {
     noStore()
 
-    const { loggedIn } = useAuth()
+    const { loggedIn, isEmailVerified } = useAuth()
     if (!loggedIn) {
         redirect('/login')
+    }
+
+    if (!isEmailVerified) {
+        redirect('/account/verify')
     }
 
     return <div>{children}</div>

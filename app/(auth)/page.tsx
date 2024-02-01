@@ -5,7 +5,7 @@ import { useAuth } from '@/hooks/useAuth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-export default function Home() {
+export default function Page() {
     const { loggedIn, logout } = useAuth()
     const router = useRouter()
 
@@ -19,8 +19,8 @@ export default function Home() {
                 <div className="mt-10 text-center">
                     <Button
                         type="button"
-                        onClick={() => {
-                            logout()
+                        onClick={async () => {
+                            await logout()
                             router.refresh()
                         }}
                     >

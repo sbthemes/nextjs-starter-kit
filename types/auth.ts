@@ -3,11 +3,11 @@ export type ILogin = {
     password: string
 }
 
-// export type IRegister = {
-//     email: string
-//     password: string
-//     privacy_terms: boolean
-// }
+export type IRegister = {
+    email: string
+    password: string
+    password_confirmation: string
+}
 
 // export type IForgotPassword = {
 //     email: string

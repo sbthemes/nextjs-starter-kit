@@ -9,9 +9,9 @@ export type IRegister = {
     password_confirmation: string
 }
 
-// export type IForgotPassword = {
-//     email: string
-// }
+export type IForgotPassword = {
+    email: string
+}
 
 // export type IResetPassword = {
 //     reset_key: any

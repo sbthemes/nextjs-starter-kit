@@ -10,7 +10,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 export default function Page() {
     const router = useRouter()
-    const { user, login, logout } = useAuth()
+    const { login } = useAuth()
 
     const {
         register,
@@ -30,17 +30,6 @@ export default function Page() {
 
     return (
         <div className="container">
-            {user && (
-                <Button
-                    type="button"
-                    onClick={() => {
-                        logout()
-                        router.refresh()
-                    }}
-                >
-                    Logout
-                </Button>
-            )}
             <div className="bg-darkblue min-h-screen">
                 <div className="py-6 text-center">
                     <Link href="/">Home</Link>

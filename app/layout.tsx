@@ -4,7 +4,6 @@ import '@/app/globals.css'
 import { cn } from '@/lib/utils'
 import { Toaster } from '@/components/ui/toaster'
 import StoreInitializer from '@/store/StoreInitializer'
-import { useStore } from '@/store'
 import { useAuth } from '@/hooks/useAuth'
 
 const inter = Inter({ subsets: ['latin'] })

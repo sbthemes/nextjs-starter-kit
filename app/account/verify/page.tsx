@@ -1,7 +1,6 @@
 import Logout from '@/app/account/verify/_logout'
 import Resend from '@/app/account/verify/_resend'
 import { useAuth } from '@/hooks/useAuth'
-import { unstable_noStore as noStore } from 'next/cache'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
@@ -10,8 +9,6 @@ export default async function Page({
 }: {
     searchParams: { token: string }
 }) {
-    noStore()
-
     const { loggedIn, isEmailVerified, verifyEmail } = useAuth()
     if (!loggedIn) {
         redirect('/login')

@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useAuth } from '@/hooks/useAuth'
+import { HOME_PAGE, LOGIN_PAGE } from '@/lib/redirect'
 import { IRegister } from '@/types/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -35,7 +36,7 @@ export default function Page() {
         <div className="container">
             <div className="bg-darkblue min-h-screen">
                 <div className="py-6 text-center">
-                    <Link href="/">Home</Link>
+                    <Link href={HOME_PAGE}>Home</Link>
                 </div>
                 <div className="flex min-h-[calc(100vh-77px)] items-center justify-center p-4">
                     <div className="mx-auto w-full max-w-[600px] space-y-[25px] rounded bg-white p-[25px]">
@@ -94,7 +95,7 @@ export default function Page() {
                         <p className="text-lightblack text-center">
                             Already registered?{' '}
                             <Link
-                                href="/login"
+                                href={LOGIN_PAGE}
                                 className="text-darkblue hover:text-primary underline transition-all duration-300"
                             >
                                 Sign in

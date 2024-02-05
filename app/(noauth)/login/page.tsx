@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useAuth } from '@/hooks/useAuth'
+import { HOME_PAGE } from '@/lib/redirect'
 import { ILogin } from '@/types/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -34,7 +35,7 @@ export default function Page() {
         <div className="container">
             <div className="bg-darkblue min-h-screen">
                 <div className="py-6 text-center">
-                    <Link href="/">Home</Link>
+                    <Link href={HOME_PAGE}>Home</Link>
                 </div>
                 <div className="flex min-h-[calc(100vh-77px)] items-center justify-center p-4">
                     <div className="mx-auto w-full max-w-[600px] space-y-[25px] rounded bg-white p-[25px]">

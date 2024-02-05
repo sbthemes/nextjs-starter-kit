@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { useAuth } from '@/hooks/useAuth'
+import { LOGIN_PAGE } from '@/lib/redirect'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -12,7 +13,7 @@ export default function Page() {
     return (
         <div className="container">
             <div className="text-center">
-                <Link href="/login">Login</Link>
+                <Link href={LOGIN_PAGE}>Login</Link>
             </div>
 
             {loggedIn && (

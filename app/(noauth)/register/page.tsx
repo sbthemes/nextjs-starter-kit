@@ -28,7 +28,7 @@ export default function Page() {
         try {
             await signup(data)
             router.refresh()
-            router.push('/')
+            router.push('/account/verify')
         } catch {}
     }
 

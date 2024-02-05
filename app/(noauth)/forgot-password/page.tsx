@@ -25,7 +25,6 @@ export default function Page() {
     const handleForm: SubmitHandler<IForgotPassword> = async (data) => {
         try {
             await forgotPassword(data)
-            router.refresh()
         } catch {}
     }
 

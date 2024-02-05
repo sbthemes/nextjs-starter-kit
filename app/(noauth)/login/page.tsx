@@ -27,7 +27,9 @@ export default function Page() {
         try {
             await login(data)
             router.refresh()
-            router.push('/')
+            setTimeout(() => {
+                router.push('/')
+            }, 100)
         } catch {}
     }
 

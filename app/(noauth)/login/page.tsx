@@ -24,9 +24,11 @@ export default function Page() {
     })
 
     const handleForm: SubmitHandler<ILogin> = async (data) => {
-        await login(data)
-        router.refresh()
-        router.push('/')
+        try {
+            await login(data)
+            router.refresh()
+            router.push('/')
+        } catch {}
     }
 
     return (

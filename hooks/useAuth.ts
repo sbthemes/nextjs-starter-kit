@@ -35,24 +35,34 @@ export const useAuth = () => {
             await fetchUser()
 
             // NOTE: Refresh router after logout to refresh all data
-        } catch {}
+        } catch (e) {
+            throw e
+        }
     }
 
     const register = async (params: IRegister) => {
         try {
             await axios.post('/auth/register', params)
             await login({ email: params.email, password: params.password })
-        } catch {}
+        } catch (e) {
+            throw e
+        }
     }
 
     const forgotPassword = async (params: IForgotPassword) => {
         try {
             await axios.post('/auth/password/forgot', params)
-        } catch {}
+        } catch (e) {
+            throw e
+        }
     }
 
     const resetPassword = async (url: string, params: IResetPassword) => {
-        await axios.post(url, params)
+        try {
+            await axios.post(url, params)
+        } catch (e) {
+            throw e
+        }
     }
 
     const resendEmailVerification = async () => {

@@ -25,9 +25,11 @@ export default function Page() {
     })
 
     const handleForm: SubmitHandler<IRegister> = async (data) => {
-        await signup(data)
-        router.refresh()
-        router.push('/')
+        try {
+            await signup(data)
+            router.refresh()
+            router.push('/')
+        } catch {}
     }
 
     return (

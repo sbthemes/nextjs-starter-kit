@@ -1,3 +1,4 @@
+import NoAuthRedirect from '@/app/(noauth)/_no-authredirect'
 import { useAuth } from '@/hooks/useAuth'
 import { redirect } from 'next/navigation'
 
@@ -11,5 +12,10 @@ export default function NoAuthLayout({
         redirect('/')
     }
 
-    return <div>{children}</div>
+    return (
+        <div>
+            <NoAuthRedirect />
+            {children}
+        </div>
+    )
 }

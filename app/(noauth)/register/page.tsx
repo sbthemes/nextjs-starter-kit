@@ -28,9 +28,6 @@ export default function Page() {
         try {
             await signup(data)
             router.refresh()
-            setTimeout(() => {
-                router.push('/account/verify')
-            }, 100)
         } catch {}
     }
 

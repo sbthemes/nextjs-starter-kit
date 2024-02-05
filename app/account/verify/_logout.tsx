@@ -14,9 +14,6 @@ export default function Logout() {
             onClick={async () => {
                 await logout()
                 router.refresh()
-                setTimeout(() => {
-                    router.push('/login')
-                }, 100)
             }}
         >
             Logout

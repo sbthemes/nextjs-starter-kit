@@ -1,3 +1,4 @@
+import AuthRedirect from '@/app/(auth)/_auth-redirect'
 import { useAuth } from '@/hooks/useAuth'
 import { redirect } from 'next/navigation'
 
@@ -15,5 +16,10 @@ export default function AuthLayout({
         redirect('/account/verify')
     }
 
-    return <div>{children}</div>
+    return (
+        <div>
+            <AuthRedirect />
+            {children}
+        </div>
+    )
 }

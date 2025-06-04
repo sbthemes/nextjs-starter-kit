@@ -38,7 +38,7 @@ export default function Page() {
                     <Link href={HOME_PAGE}>Home</Link>
                 </div>
                 <div className="flex min-h-[calc(100vh-77px)] items-center justify-center p-4">
-                    <div className="mx-auto w-full max-w-[600px] space-y-[25px] rounded bg-white p-[25px]">
+                    <div className="mx-auto w-full max-w-[600px] space-y-[25px] rounded-sm bg-white p-[25px]">
                         <h1 className="text-center text-[22px] font-semibold leading-7">
                             Sign in
                         </h1>
